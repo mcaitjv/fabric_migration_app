@@ -1,0 +1,35 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Credits consumed per company, horizontal bars sorted descending.",
+  "width": "container",
+  "height": "container",
+  "encoding": {
+    "y": {
+      "field": "CompanyName",
+      "type": "nominal",
+      "sort": "-x",
+      "title": null
+    },
+    "x": {
+      "field": "Credits",
+      "type": "quantitative",
+      "title": "Credits consumed"
+    },
+    "tooltip": [
+      { "field": "CompanyName", "type": "nominal", "title": "Company" },
+      { "field": "Credits", "type": "quantitative", "title": "Credits consumed" },
+      { "field": "Requests", "type": "quantitative", "title": "Requests" },
+      { "field": "CreditBalance", "type": "quantitative", "title": "Credit balance" },
+      { "field": "LLMCost", "type": "quantitative", "title": "LLM cost" }
+    ]
+  },
+  "layer": [
+    { "mark": "bar" },
+    {
+      "mark": { "type": "text", "style": "labelHorizontal" },
+      "encoding": {
+        "text": { "field": "Credits", "type": "quantitative" }
+      }
+    }
+  ]
+}

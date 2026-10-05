@@ -1,0 +1,28 @@
+{
+  "palettes": [
+    {
+      "id": "ink-and-coral",
+      "name": "Ink & Coral",
+      "colors": {
+        "light": ["#1d3557", "#e76f51", "#2a9d8f", "#8d6a00", "#6d597a", "#b5403a", "#3a7d44", "#9c4f96", "#316b9c", "#6b705c"],
+        "dark": ["#8fb3e0", "#f4a58a", "#5fd3c4", "#e9c46a", "#c3a6d6", "#f08a84", "#85d18f", "#e39bdc", "#7fb8e6", "#c1c5b3"]
+      }
+    },
+    {
+      "id": "ember",
+      "name": "Ember",
+      "colors": {
+        "light": ["#9b2226", "#bb5a00", "#6a7b00", "#005f73", "#7b2cbf", "#a4133c", "#3d7a3a", "#b5651d", "#264f9e", "#6c584c"],
+        "dark": ["#f28b82", "#ffb86b", "#cddc6b", "#62c6d9", "#c79bf2", "#ff8fab", "#8fd18c", "#f2b27a", "#8fb0f2", "#c9b8ad"]
+      }
+    },
+    {
+      "id": "harbor",
+      "name": "Harbor",
+      "colors": {
+        "light": ["#005f86", "#d1495b", "#00798c", "#8a6d00", "#5c4d9c", "#b3541e", "#2e7d32", "#8e3b72", "#3d5a80", "#5e6b73"],
+        "dark": ["#5cc3ee", "#f28695", "#4fd1e0", "#e8c95a", "#b3a6f0", "#f5a36e", "#84cf88", "#e39acb", "#98b4dc", "#b4c0c7"]
+      }
+    }
+  ]
+}

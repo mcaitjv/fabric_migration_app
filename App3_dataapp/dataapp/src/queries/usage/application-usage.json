@@ -1,0 +1,33 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Credits consumed per application, stacked by LLM model.",
+  "width": "container",
+  "height": "container",
+  "mark": "bar",
+  "encoding": {
+    "y": {
+      "field": "ApplicationName",
+      "type": "nominal",
+      "sort": "-x",
+      "title": null
+    },
+    "x": {
+      "aggregate": "sum",
+      "field": "Credits",
+      "type": "quantitative",
+      "title": "Credits consumed"
+    },
+    "color": {
+      "field": "ModelName",
+      "type": "nominal",
+      "title": "Model",
+      "legend": { "orient": "bottom" }
+    },
+    "tooltip": [
+      { "field": "ApplicationName", "type": "nominal", "title": "Application" },
+      { "field": "ModelName", "type": "nominal", "title": "Model" },
+      { "aggregate": "sum", "field": "Credits", "type": "quantitative", "title": "Credits consumed" },
+      { "aggregate": "sum", "field": "Requests", "type": "quantitative", "title": "Requests" }
+    ]
+  }
+}

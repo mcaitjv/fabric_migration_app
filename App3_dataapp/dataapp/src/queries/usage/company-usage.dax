@@ -1,0 +1,11 @@
+EVALUATE
+SUMMARIZECOLUMNS(
+    ROLLUPADDISSUBTOTAL('Company'[Name], "IsGrandTotal"),
+    "Requests", [Requests completed till now],
+    "Credits", [Total credits consumed],
+    "Tokens", [TokensUsed],
+    "LLM Cost", [Total LLM Cost],
+    "Avg Credits", [Avg credits per request],
+    "Credit Balance", [Credit Balance]
+)
+ORDER BY [IsGrandTotal], 'Company'[Name]

@@ -1,0 +1,246 @@
+@layer fabric-visual-tokens, theme, base, fabric-visuals, components, utilities;
+
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Bridged tokens — kept in `@theme static` so the CSS vars are always
+   emitted, not tree-shaken when no Tailwind utility consumes them.
+   Required because <VegaVisual> and <DataGrid> read these at runtime via
+   `useCssTheme()` and project them into a JS theme object (Vega's SVG output
+   cannot resolve `var()` references). */
+@theme static {
+  --color-brand:            #0b6e69;  /* bar/area fills, button-like brand surfaces */
+  --color-brand-foreground: #0b6e69;  /* line/point marks, branded text & emphasis */
+  --color-hover:            #eef1ec;  /* row/cell hover surface in DataGrid + visuals */
+
+  /* Data palette — "meter" set. Each ≥3:1 against --color-card (light: min 4.3:1). */
+  --color-data-1:  #0b6e69;
+  --color-data-2:  #c2571a;
+  --color-data-3:  #4656b0;
+  --color-data-4:  #7a7d00;
+  --color-data-5:  #b03a6f;
+  --color-data-6:  #2f8a4c;
+  --color-data-7:  #6b4fa3;
+  --color-data-8:  #9a6400;
+  --color-data-9:  #1f78b0;
+  --color-data-10: #56656a;
+
+  /* "Credits by company" bar fill (user-requested red). ≥3:1 against --color-card. */
+  --color-chart-company: #c62828;
+}
+
+@theme {
+  /* Color tokens — light theme
+     Usage: bg-*, text-*, border-* (e.g. bg-primary text-primary-foreground)
+     Each token has a -foreground pair for text on that surface. */
+  --color-background: #f4f5f1;                                       /* page background */
+  --color-foreground: #1c2422;                                       /* default text */
+
+  --color-card: #ffffff;                                             /* card surfaces */
+  --color-card-foreground: #1c2422;
+
+  --color-popover: #ffffff;                                          /* popover/dropdown surfaces */
+  --color-popover-foreground: #1c2422;
+
+  --color-primary: #0b6e69;                                          /* primary actions & buttons */
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: #eef1ec;                                        /* secondary actions */
+  --color-secondary-foreground: #1c2422;
+
+  --color-muted: #e8ebe6;                                            /* subtle backgrounds */
+  --color-muted-foreground: #5a6663;                                 /* subdued text */
+
+  --color-accent: #e2efec;                                           /* accent highlights */
+  --color-accent-foreground: #0b4f4b;
+
+  --color-destructive: #b42318;                                      /* errors & destructive actions */
+  --color-destructive-foreground: #ffffff;
+
+  --color-success: #0e700e;                                          /* success surfaces */
+  --color-success-foreground: #ffffff;
+
+  --color-border: #d9ddd6;                                           /* default border */
+  --color-input: #c9cfc7;                                            /* input field borders */
+  --color-ring: #0b6e69;                                             /* focus rings */
+
+  /* Elevation shadows — Fluent UI v9 ramp, keyed by resting elevation in px.
+     Usage: shadow-* (e.g. shadow-8, shadow-64) */
+  --shadow-2:  0 0 2px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.14);
+  --shadow-4:  0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.14);
+  --shadow-8:  0 0 2px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.14);
+  --shadow-16: 0 0 2px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.14);
+  --shadow-28: 0 0 8px rgba(0, 0, 0, 0.12), 0 14px 28px rgba(0, 0, 0, 0.14);
+  --shadow-64: 0 0 8px rgba(0, 0, 0, 0.12), 0 32px 64px rgba(0, 0, 0, 0.14);
+
+  --radius-none: 0;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 8px;
+  --radius-2xl: 12px;
+  --radius-3xl: 16px;
+  --radius-4xl: 24px;
+  --radius-5xl: 32px;
+  --radius-6xl: 40px;
+  --radius-full: 9999px;
+  --radius: 4px;
+
+  /* Spacing — 4px grid; use only these tokens, no interpolation. *-nudge = base − 2px.
+     Usage: p-*, m-*, gap-* (e.g. p-400 gap-300) */
+  --spacing-none: 0;
+  --spacing-100-nudge: 2px;
+  --spacing-100: 4px;
+  --spacing-200-nudge: 6px;
+  --spacing-200: 8px;
+  --spacing-300-nudge: 10px;
+  --spacing-300: 12px;
+  --spacing-400: 16px;
+  --spacing-500: 20px;
+  --spacing-600: 24px;
+  --spacing-700: 28px;
+  --spacing-800: 32px;
+
+  /* Layout heights for chart/grid cells (definite heights for the chart height chain).
+     Usage: h-chart-sm, h-chart-md, h-chart-lg; max-w-dashboard */
+  --spacing-chart-sm: 280px;
+  --spacing-chart-md: 340px;
+  --spacing-chart-lg: 420px;
+  --spacing-sidebar: 256px;                                          /* filter panel width: w-sidebar */
+  --container-dashboard: 1440px;
+
+  /* Font Sizes — 100-based scale 
+     Usage: text-* (e.g. text-300, text-hero-900) */
+  --text-100: 10px;
+  --text-200: 12px;
+  --text-300: 14px;
+  --text-400: 16px;
+  --text-500: 20px;
+  --text-600: 24px;
+  --text-hero-700: 28px;
+  --text-hero-800: 32px;
+  --text-hero-900: 40px;
+  --text-hero-1000: 68px;
+
+  /* Line Heights — paired with font sizes
+     Usage: leading-* (e.g. leading-300) */
+  --leading-100: 14px;
+  --leading-200: 16px;
+  --leading-300: 20px;
+  --leading-400: 22px;
+  --leading-500: 28px;
+  --leading-600: 32px;
+  --leading-hero-700: 36px;
+  --leading-hero-800: 40px;
+  --leading-hero-900: 52px;
+  --leading-hero-1000: 92px;
+
+  /* Font Weights
+     Usage: font-* (e.g. font-semibold) */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Font Families
+     Usage: font-* (e.g. font-heading, font-base) */
+  --font-heading: 'IBM Plex Sans Condensed', 'IBM Plex Sans', 'Segoe UI',   /* headings, titles, display text */
+    -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  --font-base: 'IBM Plex Sans', 'Segoe UI',                         /* body text, labels, UI controls */
+    -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  --font-monospace: 'IBM Plex Mono', Consolas, 'Courier New', monospace;  /* code, pre-formatted text */
+  --font-numeric: 'IBM Plex Mono', Consolas, 'Courier New',         /* KPI values, numeric displays */
+    monospace;
+
+  /* Icon Sizes — 100-based scale
+     Usage: icon-size-* custom utility (e.g. icon-size-200) */
+  --icon-size-100: 12px;
+  --icon-size-200: 16px;
+  --icon-size-300: 20px;
+  --icon-size-400: 24px;
+  --icon-size-500: 28px;
+  --icon-size-600: 32px;
+  --icon-size-700: 48px;
+}
+
+@utility icon-size-* {
+  width: --value(--icon-size-*);
+  height: --value(--icon-size-*);
+}
+
+@layer base {
+  .dark {
+    /* Color tokens — dark theme */
+    --color-background: #121715;
+    --color-foreground: #eef2f0;
+
+    --color-card: #1b2120;
+    --color-card-foreground: #eef2f0;
+
+    --color-popover: #1b2120;
+    --color-popover-foreground: #eef2f0;
+
+    --color-primary: #4fc7bb;
+    --color-primary-foreground: #0d1413;
+
+    --color-secondary: #232a28;
+    --color-secondary-foreground: #eef2f0;
+
+    --color-muted: #232a28;
+    --color-muted-foreground: #a3b0ac;
+
+    --color-accent: #1f3532;
+    --color-accent-foreground: #bfeae4;
+
+    --color-destructive: #f4877b;
+    --color-destructive-foreground: #1b0f0d;
+
+    --color-success: #6fd08f;
+    --color-success-foreground: #0d1413;
+
+    --color-border: #313a37;
+    --color-input: #3d4744;
+    --color-ring: #4fc7bb;
+
+    --color-brand:            #4fc7bb;
+    --color-brand-foreground: #4fc7bb;
+    --color-hover:            #232a28;
+
+    --color-data-1:  #4fc7bb;
+    --color-data-2:  #f0925a;
+    --color-data-3:  #96a3ff;
+    --color-data-4:  #cfd35a;
+    --color-data-5:  #f283b3;
+    --color-data-6:  #6fd08f;
+    --color-data-7:  #bca5f2;
+    --color-data-8:  #f2c14e;
+    --color-data-9:  #6cc0f2;
+    --color-data-10: #a9b8b4;
+
+    --color-chart-company: #ef5350;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background font-base text-foreground antialiased;
+  }
+
+  select,
+  input,
+  textarea,
+  button {
+    font-family: inherit;
+  }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}

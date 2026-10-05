@@ -1,0 +1,1 @@
+{ "query": "EVALUATE ROW(\"TableCount\", COUNTROWS(INFO.VIEW.TABLES()), \"ColumnCount\", COUNTROWS(INFO.VIEW.COLUMNS()), \"MeasureCount\", COUNTROWS(INFO.VIEW.MEASURES()), \"RelationshipCount\", COUNTROWS(INFO.VIEW.RELATIONSHIPS()))" }

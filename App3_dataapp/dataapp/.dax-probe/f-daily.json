@@ -1,0 +1,1 @@
+{"query": "DEFINE\n    VAR _CompanyFilter = TREATAS({ \"emp\", \"titan\" }, 'Company'[Name])\n\nEVALUATE\nSUMMARIZECOLUMNS(\n    'Date'[Date],\n    _CompanyFilter,\n    \"Credits\", [Total credits consumed],\n    \"LLM Cost\", [Total LLM Cost],\n    \"Requests\", [Requests completed till now]\n)\nORDER BY 'Date'[Date]", "resultSetRowCountLimit": 1000}

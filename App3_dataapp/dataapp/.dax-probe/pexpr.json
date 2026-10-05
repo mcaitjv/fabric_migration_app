@@ -1,0 +1,1 @@
+{ "query": "EVALUATE SELECTCOLUMNS(FILTER(INFO.VIEW.MEASURES(), [Name] IN {\"% Credits Consumed\", \"Credit Balance\", \"Number of Active Users\", \"Active Users MTD\", \"Total credits consumed (Cumulative)\"}), \"Name\", [Name], \"Expr\", SUBSTITUTE(SUBSTITUTE([Expression], UNICHAR(10), \" \"), UNICHAR(13), \" \"))" }

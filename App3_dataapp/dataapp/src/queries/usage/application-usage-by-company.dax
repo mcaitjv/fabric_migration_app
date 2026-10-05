@@ -1,0 +1,12 @@
+DEFINE
+    VAR _CompanyFilter = TREATAS({ __COMPANY_VALUES__ }, 'Company'[Name])
+
+EVALUATE
+SUMMARIZECOLUMNS(
+    'emp CreditLedger'[ApplicationName],
+    'emp CreditLedger'[ModelName],
+    _CompanyFilter,
+    "Credits", [Total credits consumed],
+    "Requests", [Requests completed till now]
+)
+ORDER BY 'emp CreditLedger'[ApplicationName], 'emp CreditLedger'[ModelName]

@@ -1,0 +1,1 @@
+{"query": "EVALUATE\nSUMMARIZECOLUMNS(\n    'Company'[Name],\n    \"Credits\", [Total credits consumed]\n)\nORDER BY 'Company'[Name]", "resultSetRowCountLimit": 1000}

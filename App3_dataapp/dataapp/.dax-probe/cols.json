@@ -1,0 +1,1 @@
+{ "query": "EVALUATE SELECTCOLUMNS(FILTER(INFO.VIEW.COLUMNS(), [Table] IN {\"emp CreditLedger\", \"Company\", \"Date\", \"emp CreditPlans\", \"Application - UseCase\"}), \"Table\", [Table], \"Name\", [Name], \"Type\", [DataType], \"Format\", [FormatString], \"Hidden\", [IsHidden], \"Sum\", [SummarizeBy]) ORDER BY [Table], [Name]" }

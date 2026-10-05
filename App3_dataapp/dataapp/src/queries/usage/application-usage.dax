@@ -1,0 +1,8 @@
+EVALUATE
+SUMMARIZECOLUMNS(
+    'emp CreditLedger'[ApplicationName],
+    'emp CreditLedger'[ModelName],
+    "Credits", [Total credits consumed],
+    "Requests", [Requests completed till now]
+)
+ORDER BY 'emp CreditLedger'[ApplicationName], 'emp CreditLedger'[ModelName]

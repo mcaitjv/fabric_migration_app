@@ -1,0 +1,1 @@
+{"query": "EVALUATE\nVALUES('Company'[Name])\nORDER BY 'Company'[Name]\n", "resultSetRowCountLimit": 1000}

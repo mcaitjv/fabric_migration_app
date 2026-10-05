@@ -1,0 +1,12 @@
+DEFINE
+    VAR _CompanyFilter = TREATAS({ __COMPANY_VALUES__ }, 'Company'[Name])
+
+EVALUATE
+SUMMARIZECOLUMNS(
+    'Date'[Date],
+    _CompanyFilter,
+    "Credits", [Total credits consumed],
+    "LLM Cost", [Total LLM Cost],
+    "Requests", [Requests completed till now]
+)
+ORDER BY 'Date'[Date]

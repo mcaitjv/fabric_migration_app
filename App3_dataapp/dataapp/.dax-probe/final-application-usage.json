@@ -1,0 +1,1 @@
+{"query": "EVALUATE\nSUMMARIZECOLUMNS(\n    'emp CreditLedger'[ApplicationName],\n    'emp CreditLedger'[ModelName],\n    \"Credits\", [Total credits consumed],\n    \"Requests\", [Requests completed till now]\n)\nORDER BY 'emp CreditLedger'[ApplicationName], 'emp CreditLedger'[ModelName]\n", "resultSetRowCountLimit": 500}

@@ -1,0 +1,1 @@
+{"query": "EVALUATE\nROW(\"Credit Balance\", [Credit Balance], \"Plans\", COUNTROWS('emp CreditPlans'), \"PlanCredits\", SUM('emp CreditPlans'[TotalPlanCredits]))", "resultSetRowCountLimit": 1000}

@@ -1,0 +1,1 @@
+{ "query": "EVALUATE SELECTCOLUMNS(INFO.VIEW.MEASURES(), \"Table\", [Table], \"Name\", [Name], \"Format\", [FormatString], \"Hidden\", [IsHidden], \"Expr\", [Expression]) ORDER BY [Table], [Name]" }

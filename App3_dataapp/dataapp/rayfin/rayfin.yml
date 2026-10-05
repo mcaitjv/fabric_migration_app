@@ -1,0 +1,35 @@
+id: dataapp
+name: dataapp
+version: 1.0.0
+services:
+  auth:
+    enabled: true
+    fabric:
+      enabled: true
+    allowedRedirectUris:
+      - http://localhost:5173
+      - http://127.0.0.1:5173
+      - https://roomy-creek-212e476a33-northeurope.webapp.fabricapps.net
+  data:
+    enabled: false
+  storage:
+    enabled: false
+  staticHosting:
+    enabled: true
+    folder: dist
+    buildCommand: npm run build:fabric
+    indexDocument: index.html
+    assetAccess: protected
+  functions:
+    enabled: false
+connectors:
+  - name: salesmodel
+    type: fabric-semanticmodel
+    config:
+      workspaceId: 2f764177-eb82-4dc4-be38-3c90cc462068
+      itemId: d604bc6c-f80f-4d34-9f52-336e7ad6de59
+    auth:
+      type: delegated
+    version: "1"
+    operations:
+      - name: executeQuery

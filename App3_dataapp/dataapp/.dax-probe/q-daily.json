@@ -1,0 +1,1 @@
+{"query": "EVALUATE\nSUMMARIZECOLUMNS(\n    'Date'[Date],\n    \"Credits\", [Total credits consumed],\n    \"LLM Cost\", [Total LLM Cost],\n    \"Requests\", [Requests completed till now]\n)\nORDER BY 'Date'[Date]", "resultSetRowCountLimit": 1000}
